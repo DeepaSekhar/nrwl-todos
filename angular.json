@@ -1,7 +1,263 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "landing-page": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/landing-page",
+      "sourceRoot": "apps/landing-page/src",
+      "prefix": "nrwl-todos",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/landing-page",
+            "index": "apps/landing-page/src/index.html",
+            "main": "apps/landing-page/src/main.ts",
+            "polyfills": "apps/landing-page/src/polyfills.ts",
+            "tsConfig": "apps/landing-page/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/landing-page/src/favicon.ico",
+              "apps/landing-page/src/assets"
+            ],
+            "styles": ["apps/landing-page/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/landing-page/src/environments/environment.ts",
+                  "with": "apps/landing-page/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "landing-page:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "landing-page:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "landing-page:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/landing-page/tsconfig.app.json",
+              "apps/landing-page/tsconfig.spec.json",
+              "apps/landing-page/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/landing-page/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/landing-page/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "landing-page-e2e": {
+      "root": "apps/landing-page-e2e",
+      "sourceRoot": "apps/landing-page-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/landing-page-e2e/cypress.json",
+            "tsConfig": "apps/landing-page-e2e/tsconfig.e2e.json",
+            "devServerTarget": "landing-page:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "landing-page:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/landing-page-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/landing-page-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "todos-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/todos-app",
+      "sourceRoot": "apps/todos-app/src",
+      "prefix": "nrwl-todos",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/todos-app",
+            "index": "apps/todos-app/src/index.html",
+            "main": "apps/todos-app/src/main.ts",
+            "polyfills": "apps/todos-app/src/polyfills.ts",
+            "tsConfig": "apps/todos-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/todos-app/src/favicon.ico",
+              "apps/todos-app/src/assets"
+            ],
+            "styles": ["apps/todos-app/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/todos-app/src/environments/environment.ts",
+                  "with": "apps/todos-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "todos-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "todos-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "todos-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/todos-app/tsconfig.app.json",
+              "apps/todos-app/tsconfig.spec.json",
+              "apps/todos-app/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/todos-app/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/todos-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "todos-app-e2e": {
+      "root": "apps/todos-app-e2e",
+      "sourceRoot": "apps/todos-app-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/todos-app-e2e/cypress.json",
+            "tsConfig": "apps/todos-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "todos-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "todos-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/todos-app-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/todos-app-e2e/**/*"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "landing-page"
 }
