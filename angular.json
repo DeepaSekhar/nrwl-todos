@@ -23,9 +23,16 @@
             "aot": true,
             "assets": [
               "apps/landing-page/src/favicon.ico",
-              "apps/landing-page/src/assets"
+              "apps/landing-page/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./libs/shared-assets/",
+                "output": "./assets"
+              }
             ],
-            "styles": ["apps/landing-page/src/styles.scss"],
+            "styles": [
+              "apps/landing-page/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -84,7 +91,10 @@
               "apps/landing-page/tsconfig.spec.json",
               "apps/landing-page/tsconfig.editor.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/landing-page/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/landing-page/**/*"
+            ]
           }
         },
         "test": {
@@ -117,8 +127,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/landing-page-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/landing-page-e2e/**/*"]
+            "tsConfig": [
+              "apps/landing-page-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/landing-page-e2e/**/*"
+            ]
           }
         }
       }
@@ -147,7 +162,9 @@
               "apps/todos-app/src/favicon.ico",
               "apps/todos-app/src/assets"
             ],
-            "styles": ["apps/todos-app/src/styles.scss"],
+            "styles": [
+              "apps/todos-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -206,7 +223,10 @@
               "apps/todos-app/tsconfig.spec.json",
               "apps/todos-app/tsconfig.editor.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/todos-app/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/todos-app/**/*"
+            ]
           }
         },
         "test": {
@@ -239,8 +259,36 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/todos-app-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/todos-app-e2e/**/*"]
+            "tsConfig": [
+              "apps/todos-app-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/todos-app-e2e/**/*"
+            ]
+          }
+        }
+      }
+    },
+    "ui": {
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
