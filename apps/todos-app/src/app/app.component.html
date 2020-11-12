@@ -1,30 +1,32 @@
-<header class="flex">
-  <img
-    alt="Nx logo"
-    width="75"
-    src="https://nx.dev/assets/images/nx-logo-white.svg"
-  />
-  <h1>Welcome to {{ title }}!</h1>
-</header>
-
-<div class="container">
-  Add a todo....
-  <br />
-  <input
-    type="text"
-    class="input-text"
-    placeholder="Type a todo"
-    [(ngModel)]="todoValue"
-    (key.enter)="addItem()"
-  />
-  <button (click)="addItem()">Add Todo</button>
-  <div class="list">
-    <ul>
-      <li *ngFor="let item of list">
-        <input type="checkbox" name="isDone" [(ngModel)]="item.isDone" />
-        {{ item.value }}
-        <button class="btn" (click)="deleteItem(item.id)">Delete</button>
-      </li>
-    </ul>
+<div class="home">
+  <div class="landing-text">
+    <h1>Add a Todo</h1>
+    <br />
+    <div class="box">
+      <input
+        type="text"
+        class="input"
+        placeholder="Type a todo"
+        [(ngModel)]="todoValue"
+        (key.enter)="addItem()"
+      />
+      <button class="btn" (click)="addItem()">Add Todo</button>
+    </div>
+    <div class="list">
+      <ul>
+        <li *ngFor="let item of list">
+          <input
+            class="input"
+            type="checkbox"
+            name="isDone"
+            [(ngModel)]="item.isDone"
+          />
+          {{ item.value }}
+          <button class="btn btn-delete" (click)="deleteItem(item.id)">
+            Delete
+          </button>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Todo } from "./todo"
+import { User } from "@nrwl-todos/ui";
 
 @Component({
   selector: 'nrwl-todos-root',
@@ -7,12 +8,18 @@ import { Todo } from "./todo"
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  user: User = {
+    name: "deep",
+    age: 100
+
+  }
   title = 'todos-app';
   todoValue: string;
   list: Todo[];
   ngOnInit() {
     this.list = [];
     this.todoValue = "";
+    console.log(this.user)
   }
   addItem() {
     console.log("add item")
