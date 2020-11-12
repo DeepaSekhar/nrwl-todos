@@ -39,6 +39,9 @@
     "todos-app-e2e": {
       "tags": [],
       "implicitDependencies": ["todos-app"]
+    },
+    "ui": {
+      "tags": []
     }
   }
 }
