@@ -18,8 +18,8 @@ Angular,node,nx
 
 # instruction
 
-To run first app nx serve landing-page
-To run second app nx serve todos-app
+- To run first app nx serve landing-page
+- To run second app nx serve todos-app
 
 # approach
 
