@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nrwl-todos/ui": ["libs/ui/src/index.ts"]
+      "@nrwl-todos/ui": ["libs/ui/src/index.ts"],
+      "@nrwl-todos/ui-component": ["libs/ui-component/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

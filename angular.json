@@ -26,8 +26,8 @@
               "apps/landing-page/src/assets",
               {
                 "glob": "**/*",
-                "input": "./libs/shared-assets/",
-                "output": "./assets"
+                "input": "libs/shared-assets/",
+                "output": "/assets/"
               }
             ],
             "styles": [
@@ -160,7 +160,12 @@
             "aot": true,
             "assets": [
               "apps/todos-app/src/favicon.ico",
-              "apps/todos-app/src/assets"
+              "apps/todos-app/src/assets",
+              {
+                "glob": "**/*",
+                "input": "libs/shared-assets/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
               "apps/todos-app/src/styles.scss"
@@ -290,6 +295,39 @@
             "jestConfig": "libs/ui/jest.config.js",
             "passWithNoTests": true
           }
+        }
+      }
+    },
+    "ui-component": {
+      "projectType": "library",
+      "root": "libs/ui-component",
+      "sourceRoot": "libs/ui-component/src",
+      "prefix": "nrwl-todos",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui-component/tsconfig.lib.json",
+              "libs/ui-component/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-component/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-component/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
         }
       }
     }
