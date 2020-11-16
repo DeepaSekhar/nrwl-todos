@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@nrwl-todos/ui": ["libs/ui/src/index.ts"],
-      "@nrwl-todos/ui-component": ["libs/ui-component/src/index.ts"]
+      "@nrwl-todos/ui-component": ["libs/ui-component/src/index.ts"],
+      "@nrwl-todos/service-ui": ["libs/service-ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

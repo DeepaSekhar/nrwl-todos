@@ -4,5 +4,6 @@ module.exports = {
     '<rootDir>/apps/todos-app',
     '<rootDir>/libs/ui',
     '<rootDir>/libs/ui-component',
+    '<rootDir>/libs/service-ui',
   ],
 };

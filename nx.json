@@ -45,6 +45,9 @@
     },
     "ui-component": {
       "tags": []
+    },
+    "service-ui": {
+      "tags": []
     }
   }
 }

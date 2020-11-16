@@ -30,9 +30,7 @@
                 "output": "/assets/"
               }
             ],
-            "styles": [
-              "apps/landing-page/src/styles.scss"
-            ],
+            "styles": ["apps/landing-page/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -91,10 +89,7 @@
               "apps/landing-page/tsconfig.spec.json",
               "apps/landing-page/tsconfig.editor.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/landing-page/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/landing-page/**/*"]
           }
         },
         "test": {
@@ -127,13 +122,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/landing-page-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/landing-page-e2e/**/*"
-            ]
+            "tsConfig": ["apps/landing-page-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/landing-page-e2e/**/*"]
           }
         }
       }
@@ -167,9 +157,7 @@
                 "output": "/assets/"
               }
             ],
-            "styles": [
-              "apps/todos-app/src/styles.scss"
-            ],
+            "styles": ["apps/todos-app/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -228,10 +216,7 @@
               "apps/todos-app/tsconfig.spec.json",
               "apps/todos-app/tsconfig.editor.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/todos-app/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/todos-app/**/*"]
           }
         },
         "test": {
@@ -264,13 +249,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/todos-app-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/todos-app-e2e/**/*"
-            ]
+            "tsConfig": ["apps/todos-app-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/todos-app-e2e/**/*"]
           }
         }
       }
@@ -284,9 +264,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/ui/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/ui/**/*.ts"]
           }
         },
         "test": {
@@ -311,16 +289,43 @@
               "libs/ui-component/tsconfig.lib.json",
               "libs/ui-component/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui-component/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/ui-component/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui-component/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "service-ui": {
+      "projectType": "library",
+      "root": "libs/service-ui",
+      "sourceRoot": "libs/service-ui/src",
+      "prefix": "nrwl-todos",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/service-ui/tsconfig.lib.json",
+              "libs/service-ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/service-ui/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/service-ui/jest.config.js",
             "passWithNoTests": true
           }
         }
