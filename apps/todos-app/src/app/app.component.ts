@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Todo } from "./todo"
-import { User } from "@nrwl-todos/ui";
+
+import { TodosService } from "@nrwl-todos/service-ui"
+
 
 @Component({
   selector: 'nrwl-todos-root',
@@ -8,18 +10,21 @@ import { User } from "@nrwl-todos/ui";
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  user: User = {
-    name: "deep",
-    age: 100
 
-  }
   title = 'todos-app';
   todoValue: string;
   list: Todo[];
+
+
+
+  constructor(private todoService: TodosService) {
+
+  }
   ngOnInit() {
-    this.list = [];
-    this.todoValue = "";
-    console.log(this.user)
+    // this.listTodos();
+    // this.list = [];
+    // this.todoValue = "";
+
   }
   addItem() {
     console.log("add item")
@@ -27,7 +32,7 @@ export class AppComponent {
       const newItem: Todo = {
         id: Date.now(),
         value: this.todoValue,
-        isDone: false
+
       };
       this.list.push(newItem)
     }
@@ -36,6 +41,10 @@ export class AppComponent {
   deleteItem(id: number) {
     console.log("delete is working");
     this.list = this.list.filter(item => item.id !== id);
+  }
+  listTodos() {
+    const todos = this.todoService.getTodoList()
+
   }
 
 }
